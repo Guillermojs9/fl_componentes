@@ -21,6 +21,9 @@ class MyApp extends StatelessWidget {
         "card": (BuildContext context) => const CardScreen(),
 
       },
+      onGenerateRoute: (settings) {
+        
+      },
     );
   }
 }
