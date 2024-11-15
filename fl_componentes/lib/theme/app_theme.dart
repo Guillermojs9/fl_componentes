@@ -15,7 +15,11 @@ class AppTheme {
     listTileTheme: const ListTileThemeData(iconColor: primary),
     //TextButton Theme
     textButtonTheme: TextButtonThemeData(
-      style: TextButton.styleFrom(foregroundColor: primary)
-    )
+        style: TextButton.styleFrom(foregroundColor: primary)),
+    //FloatingActionButton
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: primary,
+      foregroundColor: Colors.white,
+    ),
   );
 }

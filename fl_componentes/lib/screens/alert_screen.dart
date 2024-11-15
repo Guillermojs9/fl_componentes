@@ -10,7 +10,6 @@ class AlertScreen extends StatelessWidget {
         child: Text('AlertScreen'),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.green,
         child: const Icon(Icons.close),
         onPressed: () => Navigator.pop(context),
       ),
