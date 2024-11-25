@@ -5,20 +5,25 @@ class AlertScreen extends StatelessWidget {
 
   void displayDialog(BuildContext context) {
     showDialog(
-        //barrierDismissible: false,
+        barrierDismissible: false,
         context: context,
         builder: (context) {
-          return const AlertDialog(
-            title: Text("Alerta"),
-            content: Column(
+          return AlertDialog(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+            title: const Text("Alerta"),
+            content: const Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text("Este es el contenido de la alerta",
                     style: TextStyle(fontSize: 20)),
                 SizedBox(height: 10),
                 FlutterLogo(size: 40),
+
               ],
             ),
+            actions: [
+              TextButton(onPressed: () => Navigator.pop(context), child: const Text("Cerrar"))
+            ],
           );
         });
   }
