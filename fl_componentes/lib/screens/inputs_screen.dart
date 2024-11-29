@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/widgets.dart';
+
 class InputsScreen extends StatelessWidget {
   const InputsScreen({super.key});
 
@@ -9,35 +11,15 @@ class InputsScreen extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Forms: Inputs"),
         ),
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        body: const SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
             children: [
-              TextFormField(
-                autofocus: true,
-                textCapitalization: TextCapitalization.words,
-                onChanged: (value){
-                  print("valor: ${value}");
-                },
-                validator: (value){
-                  if(value!.length< 3){
-                    return "Mínimo 3 caracteres";
-                  }
-                },
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                decoration: InputDecoration(
-                  hintText: "Nombre y apellidos",
-                  labelText: "Nombre y apellidos",
-                  helperText: "Solo letras",
-                  suffixIcon: const Icon(Icons.person),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5)
-                    //borderRadius: BorderRadius.only(bottomRight: Radius.circular(10))
-                  )
-                ),
-              )
+              CustomTextFormField()
             ],
           ),
         ));
   }
 }
+
+
