@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../widgets/widgets.dart';
 
 class InputsScreen extends StatelessWidget {
@@ -15,11 +14,14 @@ class InputsScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
             children: [
-              CustomTextFormField()
+                CustomTextFormField(
+                hintText: "Nombre y apellidos",
+                labelText: "Nombre y apellidos",
+                helperText: "Solo letras",
+                suffixIcon: Icons.person_2,
+              ),
             ],
           ),
         ));
   }
 }
-
-
