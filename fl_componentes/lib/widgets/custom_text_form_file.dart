@@ -5,12 +5,15 @@ class CustomTextFormField extends StatelessWidget {
   final String? labelText;
   final String? helperText;
   final IconData? suffixIcon;
+  final TextInputType? keyboardType;
+  final bool obscureText;
   const CustomTextFormField({
     super.key,
     this.hintText,
     this.labelText,
     this.helperText,
     this.suffixIcon,
+    this.keyboardType, required this.obscureText,
   });
 
   @override
@@ -18,6 +21,8 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       autofocus: true,
       textCapitalization: TextCapitalization.words,
+      keyboardType: keyboardType,
+      obscureText: obscureText,
       onChanged: (value) {
         print("valor: ${value}");
       },
