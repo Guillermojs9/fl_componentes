@@ -9,6 +9,7 @@ class SliderScreen extends StatefulWidget {
 
 class _SliderScreenState extends State<SliderScreen> {
   double _sliderValue = 50;
+  bool _sliderEnabled = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,8 +22,16 @@ class _SliderScreenState extends State<SliderScreen> {
                 min: 0,
                 max: 100,
                 value: _sliderValue,
+                onChanged: _sliderEnabled
+                    ? (value) {
+                        _sliderValue = value;
+                        setState(() {});
+                      }
+                    : null),
+            Checkbox(
+                value: _sliderEnabled,
                 onChanged: (value) {
-                  _sliderValue = value;
+                  _sliderEnabled = value ?? true;
                   setState(() {});
                 })
           ],
