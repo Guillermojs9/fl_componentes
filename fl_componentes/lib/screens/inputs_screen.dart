@@ -16,6 +16,9 @@ class InputsScreen extends StatelessWidget {
       "role": "usuario"
     };
 
+    //bool _checkEnabled = true;
+    final ValueNotifier<bool> _checkEnabled = ValueNotifier<bool>(true);
+
     return Scaffold(
         appBar: AppBar(
           title: const Text("Forms: Inputs"),
@@ -65,11 +68,36 @@ class InputsScreen extends StatelessWidget {
                   formProperty: "password",
                   formValues: formValues,
                 ),
+                const SizedBox(height: 15),
+                DropdownButtonFormField(
+                    items: const [
+                      DropdownMenuItem(
+                          value: "usuario", child: Text("Usuario")),
+                      DropdownMenuItem(
+                          value: "programador", child: Text("Programador")),
+                      DropdownMenuItem(value: "editor", child: Text("Editor")),
+                      DropdownMenuItem(
+                          value: "administrador", child: Text("Administrador")),
+                    ],
+                    onChanged: (value) {
+                      print(value);
+                      formValues["role"] = value ?? "usuario";
+                    }),
+                const SizedBox(height: 15),
+                ValueListenableBuilder<bool>(
+                    valueListenable: _checkEnabled,
+                    builder: (context, value, _) {
+                      return Checkbox(
+                          value: value,
+                          onChanged: (newValue) {
+                            _checkEnabled.value = newValue ?? true;
+                          });
+                    }),
                 const SizedBox(height: 30),
                 ElevatedButton(
                     onPressed: () {
                       FocusScope.of(context).requestFocus(FocusNode());
-                      if(!myFormKey.currentState!.validate()){
+                      if (!myFormKey.currentState!.validate()) {
                         print("Errores en el formulario");
                         return;
                       }
